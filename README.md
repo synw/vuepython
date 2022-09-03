@@ -76,6 +76,15 @@ Tailwind installed import the necessary css manualy:
 import "vuepython/twstyle.css"
 ```
 
+If you use Tailwind css add this to your *tailwind.config.js* file:
+
+```js
+  content: [
+    // ...
+    './node_modules/vuepython/**/*.{vue,js,ts}',
+  ],
+```
+
 ## Example
 
 An [example](example/README.md) is available
