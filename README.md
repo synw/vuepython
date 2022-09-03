@@ -108,10 +108,12 @@ Basic example code:
 
 <script setup lang="ts">
 import { onBeforeMount } from 'vue';
+import { usePython } from "usepython";
 import { PyStatus, PyCodeBlock } from "vuepython";
 import "vuepython/style.css";
 import "highlight.js/styles/stackoverflow-light.css"
-import { py } from './state';
+
+const py = usePython()
 
 const code = `print('starting python script')
 a = 1
