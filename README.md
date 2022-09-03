@@ -7,6 +7,8 @@ Edit and run Python code in Vuejs 3
 Based on [usepython](https://github.com/synw/usepython): the Python code runs in 
 a [Pyodide](https://github.com/pyodide/pyodide) service worker, leaving the main ui thread alone
 
+[Demo](https://synw.github.io/vuepython/) - [Example](example/README.md)
+
 ## Install
 
 ```
