@@ -1,0 +1,57 @@
+{
+  "name": "vuepython",
+  "version": "0.0.10",
+  "description": "Edit and run Python code in Vuejs",
+  "repository": "https://github.com/synw/vuepython",
+  "scripts": {
+    "compile": "vite build",
+    "emit": "vue-tsc --declaration --emitDeclarationOnly",
+    "css": "npx tailwindcss -o ./src/assets/twstyle.css --minify",
+    "cpcss": "cp ./src/assets/twstyle.css ./dist",
+    "build": "run-s compile emit css cpcss"
+  },
+  "dependencies": {
+    "@highlightjs/vue-plugin": "^2.1.0",
+    "@nanostores/vue": "^0.6.0",
+    "@vueuse/core": "^9.1.1",
+    "highlight.js": "^11.6.0",
+    "usepython": "^0.0.8"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.31"
+  },
+  "devDependencies": {
+    "@types/highlight.js": "^10.1.0",
+    "@types/node": "^16.10.2",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "@vue/compiler-sfc": "^3.2.37",
+    "autoprefixer": "^10.4.8",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.16",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "sass": "^1.50.0",
+    "tailwindcss": "^3.1.8",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.1",
+    "vue": "^3.2.31",
+    "vue-tsc": "^0.40.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "style": "./dist/style.css",
+  "main": "./dist/vuepython.umd.js",
+  "module": "./dist/vuepython.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vuepython.es.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./twstyle.css": "./dist/twstyle.css"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "license": "MIT"
+}
