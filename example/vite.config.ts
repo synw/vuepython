@@ -14,7 +14,7 @@ export default defineConfig({
     vue(),
     svgLoader(),
   ],
-  base: process.env.NODE_ENV === 'production' ? '/vuepy/' : './',
+  base: process.env.NODE_ENV === 'production' ? '/vuepython/' : './',
   resolve: {
     alias: [
       { find: '@/', replacement: '/src/' },
