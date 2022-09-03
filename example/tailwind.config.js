@@ -3,6 +3,7 @@ module.exports = {
     './index.html',
     './src/**/*.{js,jsx,ts,tsx,vue}',
     './node_modules/@snowind/**/*.{vue,js,ts}',
+    './node_modules/vuepython/**/*.{vue,js,ts}',
   ],
   darkMode: 'class',
   plugins: [

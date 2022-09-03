@@ -15,9 +15,7 @@
 <script setup lang="ts">
 import { onBeforeMount } from 'vue';
 import { PyStatus, PyCodeBlock } from "vuepython";
-//import { PyStatus, PyCodeBlock } from "./vuepydist/vuepython.es";
 import "vuepython/style.css";
-//import "./vuepydist/style.css";
 import "highlight.js/styles/stackoverflow-light.css"
 import { py } from './state';
 
