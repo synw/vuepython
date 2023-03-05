@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="code-editor">
+    <div class="overflow-y-hidden code-editor">
       <code-editor :code="parsedCode" @keyup.ctrl.enter="runTheCode()" lang="python" @edit="updateCode($event)"
         :hljs="hljs"></code-editor>
     </div>
     <div v-if="controls == true">
-      <button class="border code-exec-btn btn neuro" :class="(canRun && !isExecuting) ? 'cursor-pointer' : 'cursor-wait'"
-        @click="runTheCode()">
+      <button class="border code-exec-btn btn neuro focus:ring-0"
+        :class="(canRun && !isExecuting) ? 'cursor-pointer' : 'cursor-wait'" @click="runTheCode()">
         <template v-if="!canRun">
           <app-icon name="play" class="inline-block text-xl txt-lighter"></app-icon>
         </template>
@@ -15,20 +15,28 @@
             <app-icon name="play" class="inline-block text-xl txt-success"></app-icon>
           </template>
           <template v-else>
-            <app-icon name="python" class="inline-block text-xl txt-danger"></app-icon>
+            <template v-if="log.id == id">
+              <app-icon name="python" class="inline-block text-xl txt-danger"></app-icon>
+            </template>
+            <template v-else>
+              <app-icon name="play" class="inline-block text-xl txt-lighter"></app-icon>
+            </template>
           </template>
         </template>
         &nbsp;Execute
       </button>
+      <!-- button class="ml-2 cursor-pointer neuro btn" v-if="namespace && controlsClear" @click="clear()">Clear</button -->
     </div>
-    <div class="flex flex-col code-output">
-      <div v-if="stdout == true && outputHtml">
+    <div class="flex flex-col code-output" :class="bottomMargin">
+      <div v-if="stdout == true && log.stdOut.length > 0">
         <pre v-for="row in log.stdOut" v-html="row"></pre>
       </div>
-      <div v-if="stderr == true">
+      <div v-if="stderr == true && log.stdErr.length > 0">
         <pre v-for="row in log.stdErr" v-html="row"></pre>
       </div>
-      <div v-if="exception == true && log.exception" v-html="log.exception"></div>
+      <div v-if="exception == true && log.exception">
+        <pre v-html="log.exception"></pre>
+      </div>
       <div v-if="output == true && outputHtml" v-html="outputHtml"></div>
     </div>
   </div>
@@ -59,10 +67,18 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  namespace: {
+    type: String,
+    default: null,
+  },
   controls: {
     type: Boolean,
     default: true,
   },
+  /*controlsClear: {
+    type: Boolean,
+    default: false,
+  },*/
   output: {
     type: Boolean,
     default: true,
@@ -106,7 +122,7 @@ async function runTheCode() {
   if (!canRun) {
     return
   }
-  const { results, error } = await props.py.run(parsedCode.value, props.id);
+  const { results, error } = await props.py.run(parsedCode.value, props.namespace, props.id);
   if (results) {
     //console.log("RES TYPE", typeof results, results);
     let res = "";
@@ -128,6 +144,11 @@ async function runTheCode() {
   }
 };
 
+function clear() {
+  props.py.clear(props.namespace);
+  outputHtml.value = "";
+}
+
 const canRun = computed<Boolean>(() => {
   //return isReady.value == true && isExecuting.value == false
   return isReady.value == true
@@ -142,19 +163,17 @@ const unbindLog = props.py.log.listen((val) => {
   }
 });
 
+const bottomMargin = computed<string>(() => {
+  let m = "";
+  if (outputHtml || (outputHtml || log.stdOut.length > 0 || log.stdErr.length > 0)) {
+    m = "filled"
+  }
+  return m
+})
+
 onBeforeUnmount(() => unbindLog())
 watchEffect(() => {
   parsedCode.value = props.code
   outputHtml.value = "";
 })
 </script>
-
-<style lang="sass" scoped>
-.code-exec-btn
-  @apply mt-2
-.code-output
-  @apply pl-8 space-y-2
-.btn.neuro
-  @apply rounded-lg block-background shadow-[-2px_-2px_10px_rgba(255,255,255,1),3px_3px_10px_rgba(0,0,0,0.2)] active:shadow-[inset_-2px_-2px_5px_rgba(255,255,255,0.7),inset_3px_3px_5px_rgba(0,0,0,0.1)]
-  @apply dark:shadow-[-2px_-2px_10px_rgba(155,155,155,0.3),3px_3px_10px_rgba(10,10,10,1)]
-</style>

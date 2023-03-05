@@ -1,54 +1,58 @@
 {
   "name": "vuepython",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Edit and run Python code in Vuejs",
   "repository": "https://github.com/synw/vuepython",
   "scripts": {
     "compile": "vite build",
     "emit": "vue-tsc --declaration --emitDeclarationOnly",
-    "css": "npx tailwindcss -o ./src/assets/twstyle.css --minify",
-    "cpcss": "cp ./src/assets/twstyle.css ./dist",
+    "css": "npx tailwindcss -i ./dist/style.css -o ./dist/twstyle.css --minify",
+    "cpcss": "rm -f ./dist/style.css && mv ./dist/twstyle.css ./dist/style.css && rm -f ./dist/twstyle.css",
     "build": "run-s compile emit css cpcss"
   },
   "dependencies": {
     "@nanostores/vue": "^0.6.0",
     "@vueuse/core": "^9.1.1",
     "highlight.js": "^11.6.0",
-    "usepython": "^0.0.8",
-    "vuecodit": "^0.0.5"
+    "usepython": "^0.0.9",
+    "vuecodit": "^0.0.10"
   },
   "peerDependencies": {
     "vue": "^3.2.31"
   },
   "devDependencies": {
     "@types/highlight.js": "^10.1.0",
-    "@types/node": "^16.10.2",
-    "@vitejs/plugin-vue": "^2.3.1",
-    "@vue/compiler-sfc": "^3.2.37",
-    "autoprefixer": "^10.4.8",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.16",
-    "rollup-plugin-typescript2": "^0.31.2",
-    "sass": "^1.50.0",
-    "tailwindcss": "^3.1.8",
-    "typescript": "^4.6.3",
-    "vite": "^2.9.1",
     "vue": "^3.2.31",
-    "vue-tsc": "^0.40.5"
+    "vue-tsc": "^0.40.5",
+    "@types/node": "^18.13.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/compiler-sfc": "^3.2.31",
+    "autoprefixer": "^10.4.4",
+    "path": "^0.12.7",
+    "postcss": "^8.4.12",
+    "sass": "^1.50.0",
+    "tailwindcss": "^3.0.23",
+    "tailwindcss-semantic-colors": "^0.2.0",
+    "@snowind/plugin": "0.4.0",
+    "@tailwindcss/forms": "^0.5.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3",
+    "vite": "^4.0.4"
   },
   "files": [
     "dist"
   ],
   "style": "./dist/style.css",
   "main": "./dist/vuepython.umd.js",
-  "module": "./dist/vuepython.es.js",
+  "module": "./dist/vuepython.mjs",
   "types": "./dist/main.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vuepython.es.js"
+      "import": "./dist/vuepython.mjs"
     },
-    "./style.css": "./dist/style.css",
-    "./twstyle.css": "./dist/twstyle.css"
+    "./style.css": "./dist/style.css"
   },
   "publishConfig": {
     "access": "public",
