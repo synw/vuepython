@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="pycode-block">
     <div class="overflow-y-hidden code-editor">
       <code-editor :code="parsedCode" @keyup.ctrl.enter="runTheCode()" lang="python" @edit="updateCode($event)"
         :hljs="hljs"></code-editor>
