@@ -7,7 +7,7 @@ Edit and run Python code in Vuejs 3
 Based on [usepython](https://github.com/synw/usepython): the Python code runs in 
 a [Pyodide](https://github.com/pyodide/pyodide) service worker, leaving the main ui thread alone
 
-[Demo](https://synw.github.io/vuepython/) - [Example](example/)
+[Documentation](https://synw.github.io/vuepython/)
 
 ## Install
 
@@ -69,27 +69,15 @@ the code block. [Themes preview](https://highlightjs.org/static/demo/)
 
 ## Css
 
-The styling of the widgets is made with Tailwind css classes. If you don't have
-Tailwind installed import the necessary css manualy:
+Import the necessary css
 
 ```ts
-import "vuepython/twstyle.css"
-```
-
-If you use Tailwind css add this to your *tailwind.config.js* file:
-
-```js
-  content: [
-    // ...
-    './node_modules/vuepython/**/*.{vue,js,ts}',
-  ],
+import "vuepython/style.css"
 ```
 
 ## Example
 
-An [example](example/README.md) is available
-
-Basic example code:
+Example code:
 
 ```vue
 <template>
