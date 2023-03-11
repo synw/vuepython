@@ -23,6 +23,11 @@
         <button v-for="link in links" class="border-none btn" @click="closeMenu(); $router.push(link.href)"
           v-html="link.name"></button>
         <py-status :py="py"></py-status>
+        <div>
+          <a class="text-2xl btn" :href="repoUrl">
+            <i-fa6-brands:github></i-fa6-brands:github>
+          </a>
+        </div>
         <div class="px-5 text-lg cursor-pointer txt-lighter dark:txt-light" @click="toggleDarkMode()">
           <i-fa-solid:moon v-if="!user.isDarkMode.value"></i-fa-solid:moon>
           <i-fa-solid:sun v-else></i-fa-solid:sun>
@@ -47,6 +52,7 @@ import { ref, computed } from "vue";
 import { SwHeader, SwMobileMenu } from "@snowind/header";
 import { PyStatus } from "vuepython"
 import { user, py } from "@/state";
+import { repoUrl } from "@/conf";
 import { useRouter } from "vue-router";
 
 defineProps({

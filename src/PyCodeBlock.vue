@@ -1,25 +1,25 @@
 <template>
   <div class="pycode-block">
-    <div class="overflow-y-hidden code-editor">
+    <div class="code-editor">
       <code-editor :code="parsedCode" @keyup.ctrl.enter="runTheCode()" lang="python" @edit="updateCode($event)"
         :hljs="hljs"></code-editor>
     </div>
     <div v-if="controls == true">
-      <button class="border code-exec-btn btn neuro focus:ring-0"
-        :class="(canRun && !isExecuting) ? 'cursor-pointer' : 'cursor-wait'" @click="runTheCode()">
+      <button class="code-exec-btn btn neuro" :class="(canRun && !isExecuting) ? 'cursor-pointer' : 'cursor-wait'"
+        @click="runTheCode()">
         <template v-if="!canRun">
-          <app-icon name="play" class="inline-block text-xl txt-lighter"></app-icon>
+          <app-icon name="play" class="app-icon icon-lighter"></app-icon>
         </template>
         <template v-else>
           <template v-if="!isExecuting">
-            <app-icon name="play" class="inline-block text-xl txt-success"></app-icon>
+            <app-icon name="play" class="app-icon icon-success"></app-icon>
           </template>
           <template v-else>
             <template v-if="log.id == id">
-              <app-icon name="python" class="inline-block text-xl txt-danger"></app-icon>
+              <app-icon name="python" class="app-icon icon-danger"></app-icon>
             </template>
             <template v-else>
-              <app-icon name="play" class="inline-block text-xl txt-lighter"></app-icon>
+              <app-icon name="play" class="app-icon icon-lighter"></app-icon>
             </template>
           </template>
         </template>
@@ -27,7 +27,7 @@
       </button>
       <!-- button class="ml-2 cursor-pointer neuro btn" v-if="namespace && controlsClear" @click="clear()">Clear</button -->
     </div>
-    <div class="flex flex-col code-output" :class="bottomMargin">
+    <div class="code-output" :class="bottomMargin">
       <div v-if="stdout == true && log.stdOut.length > 0">
         <pre v-for="row in log.stdOut" v-html="row"></pre>
       </div>
