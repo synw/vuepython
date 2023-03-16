@@ -2,7 +2,7 @@
   <div class="prosed">
     <h1>Code block example</h1>
     <p class="not-prose">
-      <py-code-block id="1" :code="code" :py="py" namespace="codeblock"></py-code-block>
+      <py-code-block id="1" :code="code" :py="py" namespace="codeblock" class="w-limited"></py-code-block>
     </p>
   </div>
 </template>

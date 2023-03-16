@@ -22,7 +22,7 @@
       <div class="flex flex-row items-center justify-end h-full space-x-1">
         <button v-for="link in links" class="border-none btn" @click="closeMenu(); $router.push(link.href)"
           v-html="link.name"></button>
-        <py-status :py="py"></py-status>
+        <py-status :py="py" class="txt-lighter dark:txt-light"></py-status>
         <div>
           <a class="text-2xl btn" :href="repoUrl">
             <i-fa6-brands:github></i-fa6-brands:github>

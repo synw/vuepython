@@ -1,5 +1,4 @@
 <template>
-  <div class="txt-success"></div>
 </template>
 
 <style lang="sass">
@@ -7,6 +6,8 @@
   cursor: pointer
 .cursor-wait
   cursor: wait
+.w-limited
+  @apply max-w-[52rem] xl:min-w-[52rem]
 .app-icon
   @apply inline-block text-xl
   &.icon-success
@@ -21,7 +22,7 @@
   @apply overflow-x-auto overflow-y-hidden
 .pycode-block:not(.raw)
   .code-editor
-    @apply p-2 bg-gray-100 dark:bg-black dark:text-neutral-200 rounded-md max-w-[100ch] xl:min-w-[100ch] border border-gray-200 dark:border-neutral-800
+    @apply p-2 bg-gray-100 dark:bg-black dark:text-neutral-200 rounded-md border border-gray-200 dark:border-neutral-800
 .code-exec-btn
   @apply mt-2 focus:ring-0 border
 .code-output
@@ -46,4 +47,11 @@
       @apply flex flex-row w-full
       & .cell-main
         @apply flex-grow
+.pystatus
+  & .ficon
+    @apply ml-2 mr-5 text-2xl
+    &.icon-exec
+      @apply txt-danger
+  & .frow
+    @apply flex flex-row
 </style>

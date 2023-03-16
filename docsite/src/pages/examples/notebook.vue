@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <py-notebook :py="py" namespace="example" :cells="cells"></py-notebook>
+    <py-notebook :py="py" namespace="example" :cells="cells" class="w-limited"></py-notebook>
   </div>
 </template>
 
