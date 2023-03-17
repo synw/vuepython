@@ -1,6 +1,6 @@
 {
   "name": "vuepython",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Edit and run Python code in Vuejs",
   "repository": "https://github.com/synw/vuepython",
   "scripts": {
@@ -14,7 +14,7 @@
     "@nanostores/vue": "^0.7.0",
     "@vueuse/core": "^9.13.0",
     "highlight.js": "^11.7.0",
-    "usepython": "^0.0.10",
+    "usepython": "^0.0.11",
     "vuecodit": "^0.0.10"
   },
   "peerDependencies": {
