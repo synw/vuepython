@@ -1,5 +1,6 @@
 import { ref } from "vue";
 import { usePython } from "usepython";
+//import { usePython } from "@/packages/usepython/py.esm"
 import { useApi } from "restmix";
 import { User } from "@snowind/state";
 import { pipPackages, pyodidePackages, loadHljsTheme } from "@/conf";
@@ -16,7 +17,6 @@ const isNavReady = ref(false);
 nav.init().then(() => {
   isNavReady.value = true;
 })
-
 
 async function initPy() {
   await py.load(pyodidePackages, pipPackages)

@@ -13,9 +13,9 @@ const examplesExtension = "py";
 
 async function loadHljsTheme(isDark: boolean) {
   if (isDark) {
-    await import("../node_modules/highlight.js/styles/base16/material-darker.css")
+    await import("highlight.js/styles/base16/material-darker.css")
   } else {
-    await import("../node_modules/highlight.js/styles/stackoverflow-light.css")
+    await import("highlight.js/styles/stackoverflow-light.css")
   }
 }
 

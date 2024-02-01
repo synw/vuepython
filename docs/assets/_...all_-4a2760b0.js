@@ -1,1 +1,0 @@
-import{d as n,o,e as s,u as e,H as p,p as r,n as t,Y as l}from"./index-80612821.js";const i=n({__name:"[...all]",setup(u){return(a,h)=>(o(),s(e(l),{hljs:e(p),py:e(r),nav:e(t),url:a.$route.path,"on-open":a.$router.push,"base-title":"Vue Python"},null,8,["hljs","py","nav","url","on-open"]))}});export{i as default};
