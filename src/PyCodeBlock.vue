@@ -45,7 +45,7 @@
 <script setup lang="ts">
 import "highlight.js";
 import { computed, onBeforeUnmount, reactive, ref, Ref, watchEffect } from "vue";
-import { usePython } from "usepython";
+import { PyRunner } from "usepython";
 import { useStore } from '@nanostores/vue';
 import { CodeEditor } from "vuecodit";
 import AppIcon from "./AppIcon.vue"
@@ -60,7 +60,7 @@ const props = defineProps({
     required: true
   },
   py: {
-    type: Object as typeof usePython,
+    type: Object as () => PyRunner,
     required: true
   },
   code: {

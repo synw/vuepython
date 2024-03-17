@@ -1,6 +1,6 @@
 {
   "name": "vuepython",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Edit and run Python code in Vuejs",
   "repository": "https://github.com/synw/vuepython",
   "scripts": {
@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@nanostores/vue": "^0.10.0",
-    "@vueuse/core": "^10.7.2",
+    "@vueuse/core": "^10.9.0",
     "highlight.js": "^11.9.0",
-    "usepython": "^0.0.12",
+    "usepython": "^0.1.0",
     "vuecodit": "^0.0.11"
   },
   "peerDependencies": {
@@ -25,21 +25,21 @@
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
     "@types/highlight.js": "^10.1.0",
-    "@types/node": "^20.11.15",
-    "@vitejs/plugin-vue": "^5.0.3",
-    "@vue/compiler-sfc": "^3.4.15",
-    "autoprefixer": "^10.4.17",
+    "@types/node": "^20.11.28",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/compiler-sfc": "^3.4.21",
+    "autoprefixer": "^10.4.18",
     "npm-run-all": "^4.1.5",
     "path": "^0.12.7",
-    "postcss": "^8.4.33",
-    "sass": "^1.70.0",
+    "postcss": "^8.4.35",
+    "sass": "^1.72.0",
     "tailwindcss": "^3.4.1",
     "tailwindcss-semantic-colors": "^0.2.0",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3",
-    "vite": "^5.0.12",
-    "vue": "^3.4.15",
-    "vue-tsc": "^1.8.27"
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6",
+    "vue": "^3.4.21",
+    "vue-tsc": "^2.0.6"
   },
   "files": [
     "dist"

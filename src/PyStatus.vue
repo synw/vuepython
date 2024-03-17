@@ -23,13 +23,13 @@
 </template>
 
 <script setup lang="ts">
-import { usePython } from "usepython";
+import { PyRunner } from "usepython";
 import { useStore } from '@nanostores/vue';
 import AppIcon from "./AppIcon.vue"
 
 const props = defineProps({
   py: {
-    type: Object as typeof usePython,
+    type: Object as () => PyRunner,
     required: true
   },
 });

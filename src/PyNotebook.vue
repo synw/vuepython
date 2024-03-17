@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { onBeforeMount, reactive, ref } from 'vue';
-import { usePython } from "usepython";
+import { PyRunner } from "usepython";
 import PyCodeBlock from "./PyCodeBlock.vue";
 //import "highlight.js/styles/stackoverflow-light.css"
 
@@ -38,7 +38,7 @@ const props = defineProps({
     required: true
   },
   py: {
-    type: Object as typeof usePython,
+    type: Object as () => PyRunner,
     required: true
   },
   cells: {
