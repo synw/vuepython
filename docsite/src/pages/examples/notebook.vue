@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { py } from "@/state";
-import { PyNotebook } from "vuepython";
+import PyNotebook from "../../../../src/PyNotebook.vue";
 
 const cells = ['a=1\nb=2\nc=a+b\nc', 'c']
 </script>

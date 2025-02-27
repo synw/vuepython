@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import { py } from "@/state";
-import { PyCodeBlock } from "vuepython";
+import PyCodeBlock from "../../../../src/PyCodeBlock.vue";
 
 const code = `first_name = "Bob"
 last_name = "Miller"
