@@ -1,13 +1,13 @@
 {
   "name": "vuepython",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Edit and run Python code in Vuejs",
   "repository": "https://github.com/synw/vuepython",
   "scripts": {
     "compile": "vite build",
     "emit": "vue-tsc --declaration --emitDeclarationOnly",
-    "css": "npx tailwindcss -i ./dist/style.css -o ./dist/twstyle.css --minify",
-    "cpcss": "rm -f ./dist/style.css && mv ./dist/twstyle.css ./dist/style.css && rm -f ./dist/twstyle.css",
+    "css": "npx tailwindcss -i ./dist/vuepython.css -o ./dist/twstyle.css --minify",
+    "cpcss": "rm -f ./dist/vuepython.css && mv ./dist/twstyle.css ./dist/style.css && rm -f ./dist/twstyle.css",
     "build": "run-s compile emit css cpcss"
   },
   "dependencies": {
@@ -33,7 +33,7 @@
     "path": "^0.12.7",
     "postcss": "^8.5.3",
     "sass": "^1.85.1",
-    "tailwindcss": "^4.0.9",
+    "tailwindcss": "^3.4.1",
     "tailwindcss-semantic-colors": "^0.2.0",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3",

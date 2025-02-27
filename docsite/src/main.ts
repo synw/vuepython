@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import "vuepython/style.css";
+import "../../dist/style.css";
 import "vuecodit/style.css"
 import './assets/index.css';
 import "@docdundee/vue/style.css";
